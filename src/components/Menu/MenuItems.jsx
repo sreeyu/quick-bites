@@ -1,6 +1,7 @@
 import React from "react";
 import styles from './MenuItems.module.css'
 import Card from "../UI/Card";
+import Meals from "./Meals/Meals";
 
 const MENU_DATA = [
     {
@@ -48,11 +49,14 @@ const MENU_DATA = [
 ]
 
 function MenuItems(){
+
+    const menu = MENU_DATA.map(item => <Meals key={item.id} name={item.name} description={item.description} price={item.price} />)
+    
     return(
         <section className={styles.meals} >
             <Card >
             <ul>
-                {MENU_DATA.map(item => <li>{item.name}</li>)}
+                {menu}
             </ul>
             </Card>
         </section>
