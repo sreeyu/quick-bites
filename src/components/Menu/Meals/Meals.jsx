@@ -1,5 +1,6 @@
 import React from "react";
 import styles from './Meals.module.css'
+import MealForm from "./MealForm";
 
 function Meals(props){
 
@@ -12,7 +13,9 @@ function Meals(props){
                 <div className={styles.description} >{props.description}</div>
                 <div className={styles.price} >{price}</div>
             </div>
-            
+            <div>
+                <MealForm />
+            </div>
         </li>
     )
 };
