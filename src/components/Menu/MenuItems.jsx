@@ -1,5 +1,6 @@
 import React from "react";
 import styles from './MenuItems.module.css'
+import Card from "../UI/Card";
 
 const MENU_DATA = [
     {
@@ -49,9 +50,11 @@ const MENU_DATA = [
 function MenuItems(){
     return(
         <section className={styles.meals} >
+            <Card >
             <ul>
                 {MENU_DATA.map(item => <li>{item.name}</li>)}
             </ul>
+            </Card>
         </section>
     )
 };
