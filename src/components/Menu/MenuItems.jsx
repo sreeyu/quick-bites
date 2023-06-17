@@ -50,7 +50,7 @@ const MENU_DATA = [
 
 function MenuItems(){
 
-    const menu = MENU_DATA.map(item => <Meals key={item.id} name={item.name} description={item.description} price={item.price} />)
+    const menu = MENU_DATA.map(item => <Meals id={item.id} key={item.id} name={item.name} description={item.description} price={item.price} />)
     
     return(
         <section className={styles.meals} >
