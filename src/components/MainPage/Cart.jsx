@@ -1,7 +1,16 @@
+import React, { useContext } from 'react';
 import styles from './Cart.module.css'
 import CartIcon from '../Cart/CartIcon'
+import CartContext from '../../store/cart-context';
 
 function Cart(props){
+
+    const ctx = useContext(CartContext);
+
+    const itemNumber = ctx.items.reduce((sum, item) => {
+        return sum + item.amount;
+    },0)
+    
     return(
         <button className={styles.cart} onClick={props.onCart} >
             <span className={styles.icon} >
@@ -11,7 +20,7 @@ function Cart(props){
                 Your Cart
             </span>
             <span className={styles.entry} >
-                3
+                {itemNumber}
             </span>
         </button>
     );

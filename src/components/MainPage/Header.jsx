@@ -1,7 +1,8 @@
-import React,  { Fragment } from "react";
+import React,  { Fragment, useContext } from "react";
 import styles from './Header.module.css'
 import Image from '../../images/food.avif'
 import Cart from "./Cart";
+import CartContext from "../../store/cart-context";
 
 function Header(props) {
 
