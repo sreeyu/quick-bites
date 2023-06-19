@@ -1,9 +1,9 @@
 import styles from './Cart.module.css'
 import CartIcon from '../Cart/CartIcon'
 
-function Cart(){
+function Cart(props){
     return(
-        <button className={styles.cart} >
+        <button className={styles.cart} onClick={props.onCart} >
             <span className={styles.icon} >
                 <CartIcon />
             </span>
