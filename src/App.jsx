@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 import './App.css';
 import Header from './components/MainPage/Header';
 import Menu from './components/Menu/Menu';
@@ -6,11 +6,13 @@ import Cart from './components/Cart/Cart';
 
 function App() {
   return (
-    <div >
+    <Fragment >
       <Cart />
       <Header />
-      <Menu />
-    </div>
+      <main>
+        <Menu />
+      </main>
+    </Fragment>
   );
 }
 

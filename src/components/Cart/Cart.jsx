@@ -4,7 +4,13 @@ import Modal from "../UI/Modal";
 
 function Cart() {
 
-    const cartItems = (<ul className={styles["cart-items"]}>{[{ id: 'c1', name: 'Pizza', amount: 2, price: 200.00 }].map(item => <li>{item.name}</li>)}</ul>);
+    const cartItems = (
+        <ul className={styles["cart-items"]}>
+            {[{ id: 'c1', name: 'Pizza', amount: 2, price: 200.00 }].map(item => (
+            <li>{item.name}</li>
+            ))}
+        </ul>
+    );
 
     return (
         <Modal>
