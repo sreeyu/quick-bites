@@ -8,7 +8,7 @@ function Cart(props){
     const ctx = useContext(CartContext);
 
     const itemNumber = ctx.items.reduce((sum, item) => {
-        return sum + item.amount;
+        return sum + Number(item.amount);
     },0)
     
     return(
