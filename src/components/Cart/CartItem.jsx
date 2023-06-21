@@ -15,8 +15,8 @@ function CartItem(props){
                 </div>
             </div>
             <div className={styles.actions}>
-                <button>-</button>
-                <button>+</button>
+                <button onClick={props.onRemove} >-</button>
+                <button onClick={props.onAdd} >+</button>
             </div>
         </li>
     )
