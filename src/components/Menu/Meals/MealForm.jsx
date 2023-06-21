@@ -18,7 +18,7 @@ function MealForm(props){
             return;
         }
 
-        props.onAddToCart(enteredAmount);
+        props.onAddToCart(enteredAmountNumber);
     }
     
     return(
