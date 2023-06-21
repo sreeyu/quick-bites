@@ -15,7 +15,9 @@ function Cart(props) {
         ctx.addItem({...item, amount: 1})
     };
 
-    const getRemoveItem = (id) => {}
+    const getRemoveItem = (id) => {
+        ctx.removeItem(id)
+    }
 
     const cartItems = (
         <ul className={styles["cart-items"]}>
