@@ -1,0 +1,14 @@
+{
+  "files": {
+    "main.css": "/quick-bites/static/css/main.b51a33ab.css",
+    "main.js": "/quick-bites/static/js/main.00484c0b.js",
+    "static/media/food.avif": "/quick-bites/static/media/food.58d2cde03a61a038f36f.avif",
+    "index.html": "/quick-bites/index.html",
+    "main.b51a33ab.css.map": "/quick-bites/static/css/main.b51a33ab.css.map",
+    "main.00484c0b.js.map": "/quick-bites/static/js/main.00484c0b.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.b51a33ab.css",
+    "static/js/main.00484c0b.js"
+  ]
+}
