@@ -1,56 +1,32 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import styles from './MenuItems.module.css'
 import Card from "../UI/Card";
 import Meals from "./Meals/Meals";
 
-const MENU_DATA = [
-    {
-        id: 'm1',
-        name: 'Pizza',
-        description:'Cheesy, saucy flavor explosion!',
-        price: 200
-
-    },
-    {
-        id: 'm2',
-        name: 'Burger',
-        description:'Juicy, sizzling burger delight',
-        price: 100
-
-    },
-    {
-        id: 'm3',
-        name: 'Fries',
-        description:'Fried potato perfection party!',
-        price: 40
-
-    },
-    {
-        id: 'm4',
-        name: 'Dosa',
-        description:'Crispy, savory dosa magic',
-        price: 70
-
-    },
-    {
-        id: 'm5',
-        name: 'Fried Rice',
-        description:'Flavorful wok-tossed deliciousness',
-        price: 80
-
-    },
-    {
-        id: 'm6',
-        name: 'Idli',
-        description:'Fluffy comfort on plate',
-        price: 60
-
-    }
-]
-
 function MenuItems(){
 
-    const menu = MENU_DATA.map(item => <Meals id={item.id} key={item.id} name={item.name} description={item.description} price={item.price} />)
+    const [meals, setMeals] = useState([]);
+
+    useEffect(() => {
+        const fetchMeals = async() => {
+            const response = await fetch('https://quick-bites-de1c8-default-rtdb.firebaseio.com/meals.json');
+            const responseData = await response.json();
+
+            const loadedMeals = [];
+            for (const key in responseData){
+                loadedMeals.push({
+                    id: key,
+                    name: responseData[key].name,
+                    description: responseData[key].description,
+                    price: responseData[key].price
+                });
+            }
+            setMeals(loadedMeals);
+        }
+        fetchMeals()
+    }, [])
+
+    const menu = meals.map(item => <Meals id={item.id} key={item.id} name={item.name} description={item.description} price={item.price} />)
     
     return(
         <section className={styles.meals} >
