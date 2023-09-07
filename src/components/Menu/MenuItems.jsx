@@ -7,10 +7,15 @@ function MenuItems(){
 
     const [meals, setMeals] = useState([]);
     const [isLoading, setIsLoading] = useState(true);
+    const [isError, setIsError] = useState();
 
     useEffect(() => {
         const fetchMeals = async() => {
             const response = await fetch('https://quick-bites-de1c8-default-rtdb.firebaseio.com/meals.json');
+
+            if (!response.ok){
+                throw new Error('Something went wrong!');
+            }
             const responseData = await response.json();
 
             const loadedMeals = [];
@@ -25,12 +30,21 @@ function MenuItems(){
             setMeals(loadedMeals);
             setIsLoading(false);
         }
-        fetchMeals()
+        fetchMeals().catch((error) =>{
+            setIsLoading(false);
+            setIsError(error.message);
+        })
     }, []);
 
     if(isLoading){
         return <section className={styles.loading}>
             <p>Loading....</p>
+        </section>
+    }
+
+    if(isError){
+        return <section className={styles.error} >
+            <h1>{isError}</h1>
         </section>
     }
 
