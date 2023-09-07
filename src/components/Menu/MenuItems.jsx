@@ -6,6 +6,7 @@ import Meals from "./Meals/Meals";
 function MenuItems(){
 
     const [meals, setMeals] = useState([]);
+    const [isLoading, setIsLoading] = useState(true);
 
     useEffect(() => {
         const fetchMeals = async() => {
@@ -22,9 +23,16 @@ function MenuItems(){
                 });
             }
             setMeals(loadedMeals);
+            setIsLoading(false);
         }
         fetchMeals()
-    }, [])
+    }, []);
+
+    if(isLoading){
+        return <section className={styles.loading}>
+            <p>Loading....</p>
+        </section>
+    }
 
     const menu = meals.map(item => <Meals id={item.id} key={item.id} name={item.name} description={item.description} price={item.price} />)
     
